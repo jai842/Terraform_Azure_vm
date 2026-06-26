@@ -1,0 +1,6 @@
+location = "eastus"
+resource_group_name = "shiva-rg"
+admin_username = "jayaram"
+admin_password = "P@ssw0rd@12345"
+vm_name = "jayaram-vm"
+storage_account_name = "strdms"
