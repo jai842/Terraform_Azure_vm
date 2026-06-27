@@ -1,7 +1,7 @@
-# resource "azurerm_resource_group" "rg" {
-#   name     = "shiva-rg"
-#   location = "eastus"
-# }
+resource "azurerm_resource_group" "rg" {
+  name     = "var.resource_group_name"
+  location = "var.location"
+}
 
 # resource "azurerm_resource_group" "rga" {
 #   name     = "Ramarao-rg"
@@ -33,13 +33,29 @@ resource "azurerm_storage_account" "exam1" {
 #  } 
 # }
 
+resource "azurerm_network_security_group" "example" {
+  name                = "example-security-group"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+}
 
+resource "azurerm_virtual_network" "example" {
+  name                = "example-network"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  address_space       = ["10.0.0.0/16"]
+  
 
+  subnet {
+    name             = "subnet1"
+    address_prefixes = ["10.0.1.0/24"]
+  }
+}
 resource "azurerm_private_endpoint" "pt01" {
   name = "pvt11"
   resource_group_name = var.resource_group_name
   location = var.location
-  subnet_id = data.azurerm_subnet.subnet.id
+  subnet_id = azurerm_subnet.subnet1.id
 
   private_service_connection {
     name = "pvtcon"
