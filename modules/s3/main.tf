@@ -16,7 +16,7 @@ resource "azurerm_storage_account" "exam1" {
   account_replication_type = "LRS"
 
  tags = {
-    environment = "dev"
+    environment = "prod"
  } 
 }
 
