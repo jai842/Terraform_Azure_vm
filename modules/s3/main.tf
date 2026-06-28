@@ -52,7 +52,7 @@ resource "azurerm_virtual_network" "example" {
   }
 }
 resource "azurerm_private_endpoint" "pt01" {
-  name = "pvt11"
+  name = "pvt12"
   resource_group_name = var.resource_group_name
   location = var.location
   subnet_id = azurerm_subnet.subnet1.id
