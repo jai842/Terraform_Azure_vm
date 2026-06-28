@@ -60,7 +60,7 @@ resource "azurerm_private_endpoint" "pt01" {
   subnet_id = azurerm_subnet.subnet1.id
 
   private_service_connection {
-    name = "pvtcon1"
+    name = "pvtconone"
     private_connection_resource_id = azurerm_storage_account.exam1.id
     is_manual_connection = false
 
