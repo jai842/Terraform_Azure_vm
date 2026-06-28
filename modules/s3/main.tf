@@ -54,7 +54,7 @@ resource "azurerm_subnet" "subnet1" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 resource "azurerm_private_endpoint" "pt01" {
-  name = "pvt123"
+  name = "pvt1234"
   resource_group_name = var.resource_group_name
   location = var.location
   subnet_id = azurerm_subnet.subnet1.id
